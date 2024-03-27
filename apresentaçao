@@ -1,11 +1,12 @@
-const nome = "Robson do matagal"
+const nome = "Saci-perere"
 const idade = 2024-1358
-const AnoDeInvocacacao = "2012"
-const localDaInvocacao = "Xique-Xique"
-const conjurador = "Roberval o bruxo"
-const objetivo = "restaurar a união soviética"
+const AparicaoRecente = "2012"
+const Cidade = "Xique-Xique"
+const Estado = "Bahia"
+const conjurador = "Luiz Inacio Lula da Silva"
+const trabalho = "cuzinheiro no restaurante de 5 estrelas Larica's Lanches."
 
-const apresentacao = `meu nome é ${nome}, minha idade é ${idade} anos, fui invocado no ano de ${AnoDeInvocacacao}, na cidade de ${localDaInvocacao}, pelo ${conjurador}, meu objetivo neste mundo é ${objetivo}`;
+const apresentacao = `meu nome é ${nome}, minha idade é ${idade} anos, minha aparição mais recente foi no ano de ${AparicaoRecente}, na cidade de ${Cidade}, no estado da ${Estado}, pelo ${conjurador}, trabalho como ${trabalho}`;
 
 console.log(apresentacao);
 
