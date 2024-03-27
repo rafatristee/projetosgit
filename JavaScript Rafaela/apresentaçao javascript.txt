@@ -1,0 +1,10 @@
+const nome = "Saci-perere"
+const idade = 2024-1358
+const AparicaoRecente = "2012"
+const Cidade = "Xique-Xique"
+const Estado = "Bahia"
+const trabalho = "cuzinheiro no restaurante de 5 estrelas Larica's Lanches."
+
+const apresentacao = `meu nome é ${nome}, minha idade é ${idade} anos, minha aparição mais recente foi no ano de ${AparicaoRecente}, na cidade de ${Cidade}, no estado da ${Estado}, trabalho como ${trabalho}`;
+
+console.log(apresentacao);
