@@ -1,0 +1,11 @@
+const nome = "Robson do matagal"
+const idade = 2024-1358
+const AnoDeInvocacacao = "2012"
+const localDaInvocacao = "Xique-Xique"
+const conjurador = "Roberval o bruxo"
+const objetivo = "restaurar a união soviética"
+
+const apresentacao = `meu nome é ${nome}, minha idade é ${idade} anos, fui invocado no ano de ${AnoDeInvocacacao}, na cidade de ${localDaInvocacao}, pelo ${conjurador}, meu objetivo neste mundo é ${objetivo}`;
+
+console.log(apresentacao);
+
