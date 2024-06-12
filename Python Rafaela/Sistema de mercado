@@ -39,3 +39,13 @@ class Supermercado:
         if pagamento.lower() == 'cancelar':
             print('compra cancelada.')
             return
+
+        valor_pago = float(pagamento)
+        troco = valor_pago - self.total
+
+        if troco > 0:
+            print(f'valor insuficiente.faltam R${-troco:.2f}.')
+            self.pagar()
+        else:
+            if troco > 0:
+                print(f'troco: R${-troco:.2f}')
