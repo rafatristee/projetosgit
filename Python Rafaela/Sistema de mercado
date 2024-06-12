@@ -49,3 +49,16 @@ class Supermercado:
         else:
             if troco > 0:
                 print(f'troco: R${-troco:.2f}')
+cpf_nota = input('deseja informar o CPF na nota fical? (sim/não): ')
+            if cpf_nota.lower() ==  'sim':
+                cpf = input('digite o CPF: ')
+                print(f'Nota fiscal: Total da compra - R${self.total:.2f} | CPF - {cpf}')
+            else:
+                print(f'Nota fiscal: Total da compra - R${self.total:.2f}')
+
+        self.catalogo = {'arroz': 10.0, 'feijao': 8.5, 'macarrao': 5.0, 'carne': 25.0 }
+        self.carrinho = {}:
+        self.total = 0.0
+
+mercado = Supermercado()
+mercado.comprar
