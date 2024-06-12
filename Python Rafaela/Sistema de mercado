@@ -35,3 +35,7 @@ class Supermercado:
         self.pagar
 
     def pagar(self):
+        pagamento = input('Digite o valor recebido pelo cliente (ou "cancelar" para cancelar a compra )')
+        if pagamento.lower() == 'cancelar':
+            print('compra cancelada.')
+            return
