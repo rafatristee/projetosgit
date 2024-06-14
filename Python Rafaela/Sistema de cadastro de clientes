@@ -1,87 +1,86 @@
-print("\nMercadinho do Cuca Beludo")
+print("\nMercado Dois Irmãos")
 
 nomes = []
 idades = []
-cursos = []
+cpfs = []
 
-
-def cadatro_aluno():
-    nome_aluno = input("\nDigite o nome do aluno:")
-    idade_aluno = input("Digite a idade do aluno:")
-    curso_aluno = input("Digite o curso o qual o aluno irá frequentar:")
-    nomes.append(nome_aluno)
-    idades.append(idade_aluno)
-    cursos.append(curso_aluno)
-    print("\nCadastro realizado com sucesso!\n")
-    print("Cadastrar novo aluno?\n")
+def cadastro_cliente():
+    nome_cliente = input("\nDigite o nome do cliente:")
+    idade_cliente = input("\nDigite a idade do cliente:")
+    cpf_cliente = input("\nDigite o cpf do cliente:")
+    nomes_append(nome_cliente)
+    idades_append(idade_cliente)
+    cpf_append(cpf_cliente)
+    print("\nCliente cadastrado com sucesso!\n")
+    print("Continuar a cadastrar outro cliente?\n")
     print("1.Sim")
     print("2.Não\n")
-    novo_aluno = input("Selecione uma das opções:")
-    if novo_aluno == "1":
-        cadatro_aluno()
-    if novo_aluno == "2":
+    novo_cliente = input("Selecione uma das opções:")
+    if novo_cliente == "1":
+        cadastro_cliente()
+    if novo_cliente == "2":
         principal()
-
-
-def remover_aluno():
+        
+        
+def remover_cliente():
     if nomes == []:
-        print("\nLista vazia")
+        print("\nLista vazia.")
         principal()
     else:
         contador = 0
-        print("\nLISTA DE ALUNOS\n")
+        print("\nLISTA DE CLIENTES")
         for e1 in nomes:
             idade_X = idades[contador]
-            curso_X = cursos[contador]
+            cpf_X = cpfs[contador]
             dados_lista = str(contador) + "." + str(e1) + "; IDADE: " + \
-                str(idade_X) + " anos; CURSO: " + str(curso_X) + ";"
+                 str(idade_X) + " anos; CPF: " + str(cpf_X) + ";"
             print(dados_lista)
             contador = contador + 1
-        remover_aluno = int(input("\nSelecione um aluno para remover:"))
-        nomes.pop(remover_aluno)
-        idades.pop(remover_aluno)
-        cursos.pop(remover_aluno)
-        print("\nAluno removido com sucesso!")
+        remover_cliente = int(input("\nSelecione um cliente para remover:"))
+        nomes.pop(remover_cliente)
+        idades.pop(remover_cliente)
+        cpfs.pop(remover_cliente)
+        print("\nCliente removido com sucesso!")
     principal()
-
-
+    
+    
 def lista():
     if nomes == []:
-        print("\nLista vazia")
+        print("\nLista vazia.")
         principal()
     else:
         contador = 0
-        print("\nLISTA DE ALUNOS\n")
+        print("\nLISTA DE CLIENTES\n")
         for e1 in nomes:
             idade_X = idades[contador]
-            curso_X = cursos[contador]
+            cpf_X = cpfs[contador]
             dados_lista = "NOME: " + \
                 str(e1) + "; IDADE: " + str(idade_X) + \
-                " anos; CURSO: " + str(curso_X) + ";"
+                " anos; CPF: " + str(cpf_X) + ";"
             print(dados_lista)
             contador = contador + 1
     principal()
-
+    
 
 def principal():
-    print("\nBem-vindo ao sistema de cadastramento de clientes do meradinho!")
-    print("\n1.Cadastrar aluno")
-    print("2.Descadastrar aluno")
+    print("\nBem vindo ao sistema de cadastro de clientes!")
+    print("\n1.Cadastrar cliente")
+    print("2.Descadastrar cliente")
     print("3.Ver lista completa")
     print("4.Encerrar atividade\n")
     resposta = input("Selecione uma das opções:")
     condicao(resposta)
-
-
+    
+    
 def condicao(resposta):
     if resposta == "1":
-        cadatro_aluno()
+        cadastro_cliente()
     if resposta == "2":
-        remover_aluno()
+        remover_cliente()
     if resposta == "3":
         lista()
     if resposta == "4":
-        print("\nAté a próxima! \nEncerrando o Programa...\n")
-
-
+        print("\nAté a próxima! \nEncerrando programa...\n")
+        
+        
 principal()
