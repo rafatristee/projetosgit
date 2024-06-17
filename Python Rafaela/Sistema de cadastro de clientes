@@ -57,7 +57,7 @@ def lista():
             emprego_X = empregos[contador]
             dados_lista = "NOME: " + \
                 str(e1) + "; CPF: " + str(cpf_X) + \
-                " anos; EMPREGO: " + str(emprego_X) + ";"
+                " ; EMPREGO: " + str(emprego_X) + ";"
             print(dados_lista)
             contador = contador + 1
     principal()
