@@ -17,4 +17,8 @@ class Supermercado:
             
             if escolha in self.catalogo:
                 quantidade = int(input('Digite a quantidade desejada: '))
-                if escolha in self.carrinho
+                if escolha in self.carrinho:
+                    self.carrinho[escolha] += quantidade
+                else:
+                    self.carrinho[escolha] = quantidade
+                print(f'{quantidade} unidades de {escolha')
