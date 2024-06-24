@@ -1,0 +1,20 @@
+class Supermercado:
+    def __init__(self):
+        self.catalogo = {'arroz': 10.0, 'feijao': 8.5, 'macarrao': 5.0, 'carne': 25.0}
+        self.carrinho = {}
+        self.total = 0.0
+        
+        
+    def comprar(self):
+        while True:
+            print('Catalogo de produtos:')
+            for produto, preco in self.catalogo.items():
+                print(f'{produto.capitalize()} - R${preco:.2f}')
+                
+            escolha = input('Digite o que deseja comprar (ou "sair" para encerrar): ')
+            if escolha.lower() == 'sair':
+                break
+            
+            if escolha in self.catalogo:
+                quantidade = int(input('Digite a quantidade desejada: '))
+                if escolha in self.carrinho
