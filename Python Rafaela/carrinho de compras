@@ -55,7 +55,7 @@ class Supermercado:
             if cpf_nota.lower() == 'sim':
                cpf = input('Digite o CPF: ')
                print(f'Nota fiscal: Total da compra - R${self.total:.2f} | CPF - {cpf}')
-        else:
+            else:
                print(f'Nota fiscal: Total da compra - R${self.total:.2f}')
                
         self.catalogo = {'arroz': 10.0, 'feijao': 8.5, 'macarrao': 5.0, 'carne': 25.0}
