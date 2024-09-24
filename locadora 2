@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <string.h>
+
+// Estrutura para representar um filme
+typedef struct {
+    char titulo[50];
+    char genero[20];
+    float preco;
+    float nota; // nota do filme (de 0 a 10)
+    char sinopse[200]; // sinopse do filme
+} Filme;
+
+// Função para mostrar os filmes disponíveis
+void mostrarFilmes(Filme filmes[], int tamanho) {
+    printf("Filmes disponíveis:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d. %s (%s) - R$ %.2f\n", i + 1, filmes[i].titulo, filmes[i].genero, filmes[i].preco);
+        printf("  Opções:\n");
+        printf("    1. Ver sinopse\n");
+        printf("    2. Ver nota\n");
+        printf("    3. Voltar à lista de filmes\n");
+        int opcao;
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                printf("Sinopse de '%s': %s\n", filmes[i].titulo, filmes[i].sinopse);
+                break;
+            case 2:
+                printf("Nota de '%s': %.1f/10\n", filmes[i].titulo, filmes[i].nota);
+                break;
+            case 3:
+                // Voltar à lista de filmes
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+    }
+}
+
+// Função para alugar um filme
+void alugarFilme(Filme filmes[], int tamanho, int escolha) {
+    printf("Você escolheu alugar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+}
+
+// Função para pagar um filme
+void pagarFilme(Filme filmes[], int tamanho, int escolha) {
+    printf("Você escolheu comprar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+}
+
+int main() {
+    Filme filmes[] = {
+        {"O Show de Truman", "Comédia", 10.00, 8.5, "Um homem descobre que sua vida é um reality show."},
+        {"Taxi Driver", "Ação", 15.00, 9.0, "Um taxista se torna obcecado por uma garota."},
+        {"Scarface", "Crime", 12.00, 8.0, "Um imigrante cubano se torna um poderoso chefão do crime."},
+        {"Pulp Fiction", "Crime", 18.00, 9.5, "Uma história de crime e violência em Los Angeles."},
+        {"2001: Odisseia no Espaço", "Ficção Científica", 14.00, 9.0, "Uma equipe de astronautas descobre um misterioso objeto em órbita da Terra."}
+    };
+    int tamanho = sizeof(filmes) / sizeof(Filme);
+
+    int opcao;
+    printf("Bem-vindo à locadora de filmes!\n");
+    printf("1. Mostrar filmes disponíveis\n");
+    printf("2. Alugar um filme\n");
+    printf("3. Comprar um filme\n");
+    printf("4. Sair\n");
+    scanf("%d", &opcao);
+
+    while (opcao != 4) {
+        switch (opcao) {
+            case 1:
+                mostrarFilmes(filmes, tamanho);
+                break;
+            case 2:
+                printf("Escolha um filme para alugar (1-%d): ", tamanho);
+                int escolha;
+                scanf("%d", &escolha);
+                alugarFilme(filmes, tamanho, escolha);
+                break;
+            case 3:
+                printf("Escolha um filme para comprar (1-%d): ", tamanho);
+                scanf("%d", &escolha);
+                pagarFilme(filmes, tamanho, escolha);
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+        printf("1. Mostrar filmes disponíveis\n");
+        printf("2. Alugar um filme\n");
+        printf("3. Comprar um filme\n");
+        printf("4. Sair\n");
+    }
+     return 0;
+         
+    }
