@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+
+// Estrutura para representar um filme
+typedef struct {
+    char titulo[50];
+    char genero[20];
+    float preco;
+} Filme;
+
+// Função para mostrar os filmes disponíveis
+void mostrarFilmes(Filme filmes[], int tamanho) {
+    printf("Filmes disponíveis:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d. %s (%s) - R$ %.2f\n", i + 1, filmes[i].titulo, filmes[i].genero, filmes[i].preco);
+    }
+}
+
+// Função para alugar um filme
+void alugarFilme(Filme filmes[], int tamanho, int escolha) {
+    printf("Você escolheu alugar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+}
+
+// Função para pagar um filme
+void pagarFilme(Filme filmes[], int tamanho, int escolha) {
+    printf("Você escolheu comprar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+}
+
+int main() {
+    Filme filmes[] = {
+        {"O Show de Truman", "Comédia", 10.00},
+        {"Taxi Driver", "Ação", 15.00},
+        {"Scarface", "Crime", 12.00},
+        {"Pulp Fiction", "Crime", 18.00},
+        {"2001: Odisseia no Espaço", "Ficção Científica", 14.00}
+    };
+    int tamanho = sizeof(filmes) / sizeof(Filme);
+
+    int opcao;
+    printf("Bem-vindo à locadora de filmes!\n");
+    printf("1. Mostrar filmes disponíveis\n");
+    printf("2. Alugar um filme\n");
+    printf("3. Comprar um filme\n");
+    printf("4. Sair\n");
+    scanf("%d", &opcao);
+
+    while (opcao != 4) {
+        switch (opcao) {
+            case 1:
+                mostrarFilmes(filmes, tamanho);
+                break;
+            case 2:
+                printf("Escolha um filme para alugar (1-%d): ", tamanho);
+                int escolha;
+                scanf("%d", &escolha);
+                alugarFilme(filmes, tamanho, escolha);
+                break;
+            case 3:
+                printf("Escolha um filme para comprar (1-%d): ", tamanho);
+                scanf("%d", &escolha);
+                pagarFilme(filmes, tamanho, escolha);
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+        printf("1. Mostrar filmes disponíveis\n");
+        printf("2. Alugar um filme\n");
+        printf("3. Comprar um filme\n");
+        printf("4. Sair\n");
+        scanf("%d", &opcao);
+    }
+
+    return 0;
+}
