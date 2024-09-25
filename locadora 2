@@ -17,12 +17,24 @@ void mostrarFilmes(Filme filmes[], int tamanho) {
     printf("Escolha um filme (1-%d): ", tamanho);
 }
 
-void alugarFilme(Filme filmes[], int tamanho, int escolha) {
-    printf("Você escolheu alugar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+void alugarFilme(Filme filmes[], int tamanho, int escolha, float *total) {
+    float preco_aluguel = filmes[escolha - 1].preco * 0.4;
+    printf("Você escolheu alugar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, preco_aluguel);
+    *total += preco_aluguel;
 }
 
-void pagarFilme(Filme filmes[], int tamanho, int escolha) {
+void pagarFilme(Filme filmes[], int tamanho, int escolha, float *total) {
     printf("Você escolheu comprar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
+    *total += filmes[escolha - 1].preco;
+}
+
+void mostrarTotal(float total) {
+    printf("Total: R$ %.2f\n", total);
+}
+
+void finalizarCompra(float total) {
+    printf("Compra finalizada! Total: R$ %.2f\n", total);
+    printf("Obrigado por comprar conosco!\n");
 }
 
 int main() {
@@ -37,14 +49,17 @@ int main() {
     int tamanho = sizeof(filmes) / sizeof(Filme);
 
     int opcao;
+    float total = 0.0;
     printf("Bem-vindo à locadora de filmes!\n");
     printf("1. Mostrar filmes disponíveis\n");
     printf("2. Alugar um filme\n");
     printf("3. Comprar um filme\n");
-    printf("4. Sair\n");
+    printf("4. Mostrar total\n");
+    printf("5. Finalizar compra\n");
+    printf("6. Sair\n");
     scanf("%d", &opcao);
 
-    while (opcao != 4) {
+    while (opcao != 6) {
         switch (opcao) {
             case 1:
                 mostrarFilmes(filmes, tamanho);
@@ -53,12 +68,18 @@ int main() {
                 mostrarFilmes(filmes, tamanho);
                 int escolha;
                 scanf("%d", &escolha);
-                alugarFilme(filmes, tamanho, escolha);
+                alugarFilme(filmes, tamanho, escolha, &total);
                 break;
             case 3:
                 mostrarFilmes(filmes, tamanho);
                 scanf("%d", &escolha);
-                pagarFilme(filmes, tamanho, escolha);
+                pagarFilme(filmes, tamanho, escolha, &total);
+                break;
+            case 4:
+                mostrarTotal(total);
+                break;
+            case 5:
+                finalizarCompra(total);
                 break;
             default:
                 printf("Opção inválida. Tente novamente.\n");
@@ -66,8 +87,11 @@ int main() {
         printf("1. Mostrar filmes disponíveis\n");
         printf("2. Alugar um filme\n");
         printf("3. Comprar um filme\n");
-        printf("4. Sair\n");
+        printf("4. Mostrar total\n");
+        printf("5. Finalizar compra\n");
+        printf("6. Sair\n");
         scanf("%d", &opcao);
     }
     return 0;
 }
+
