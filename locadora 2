@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-// Estrutura para representar um filme
 typedef struct {
     char titulo[50];
     char genero[20];
     float preco;
-    float nota; // nota do filme (de 0 a 10)
-    char sinopse[200]; // sinopse do filme
+    float nota;
+    char sinopse[200];
 } Filme;
 
-// Função para mostrar os filmes disponíveis
 void mostrarFilmes(Filme filmes[], int tamanho) {
     printf("Filmes disponíveis:\n");
     for (int i = 0; i < tamanho; i++) {
@@ -29,7 +27,6 @@ void mostrarFilmes(Filme filmes[], int tamanho) {
                 printf("Nota de '%s': %.1f/10\n", filmes[i].titulo, filmes[i].nota);
                 break;
             case 3:
-                // Voltar à lista de filmes
                 break;
             default:
                 printf("Opção inválida. Tente novamente.\n");
@@ -37,12 +34,10 @@ void mostrarFilmes(Filme filmes[], int tamanho) {
     }
 }
 
-// Função para alugar um filme
 void alugarFilme(Filme filmes[], int tamanho, int escolha) {
     printf("Você escolheu alugar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
 }
 
-// Função para pagar um filme
 void pagarFilme(Filme filmes[], int tamanho, int escolha) {
     printf("Você escolheu comprar '%s' por R$ %.2f\n", filmes[escolha - 1].titulo, filmes[escolha - 1].preco);
 }
@@ -53,6 +48,7 @@ int main() {
         {"Taxi Driver", "Ação", 15.00, 9.0, "Um taxista se torna obcecado por uma garota."},
         {"Scarface", "Crime", 12.00, 8.0, "Um imigrante cubano se torna um poderoso chefão do crime."},
         {"Pulp Fiction", "Crime", 18.00, 9.5, "Uma história de crime e violência em Los Angeles."},
+        {"Clube da Luta", "Crime", 16.00, 9.0, "Um cara fudido conhece um vendedor de sabonete."},
         {"2001: Odisseia no Espaço", "Ficção Científica", 14.00, 9.0, "Uma equipe de astronautas descobre um misterioso objeto em órbita da Terra."}
     };
     int tamanho = sizeof(filmes) / sizeof(Filme);
